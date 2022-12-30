@@ -19,7 +19,8 @@ return new class extends Migration {
             $table->string('role')->default('admin');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->unsignedBigInteger('tenant_id')->nullable();
+            $table->unsignedBigInteger('tenant_id')->nullable()->index();
+            $table->foreign('tenant_id')->references('id')->on('tenants')->cascadeOnDelete();
             $table->rememberToken();
             $table->timestamps();
         });

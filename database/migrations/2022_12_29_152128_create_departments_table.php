@@ -15,7 +15,8 @@ return new class extends Migration {
         Schema::create('departments', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('tenant_id');
+            $table->unsignedBigInteger('tenant_id')->index();
+            $table->foreign('tenant_id')->references('id')->on('tenants')->cascadeOnDelete();
             $table->timestamps();
         });
     }
