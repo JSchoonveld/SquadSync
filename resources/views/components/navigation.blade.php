@@ -17,9 +17,9 @@
                 </button>
             </div>
             <div class="hidden lg:flex lg:min-w-0 lg:flex-1 lg:justify-center lg:gap-x-12">
-                <a href="#" class="font-semibold text-gray-900 hover:text-gray-900">Product</a>
-
                 <a href="#" class="font-semibold text-gray-900 hover:text-gray-900">Features</a>
+
+                <a href="{{ route('pricing') }}" class="font-semibold text-gray-900 hover:text-gray-900">Pricing</a>
 
                 <a href="#" class="font-semibold text-gray-900 hover:text-gray-900">Marketplace</a>
 

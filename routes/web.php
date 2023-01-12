@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Passwords\Confirm;
 use App\Http\Livewire\Auth\Passwords\Email;
@@ -23,6 +24,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'show'])->name('home');
+
+Route::get('/pricing', function() {
+    return view('pricing');
+})->name('pricing');
+
+Route::post('/signup', [SubscriptionController::class, 'subscribe'])->name('subscribe.subscribe');
+Route::get('/signup', [SubscriptionController::class, 'show'])->name('subscribe.show');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function() {
+        return view('dashboard');
+    })->name('dashboard');
+});
 
 Route::middleware('guest')->group(function () {
     Route::get('login', Login::class)
