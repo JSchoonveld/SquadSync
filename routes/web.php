@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\EmailVerificationController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Passwords\Confirm;
@@ -31,6 +32,11 @@ Route::get('/pricing', function() {
 
 Route::post('/signup', [SubscriptionController::class, 'subscribe'])->name('subscribe.subscribe');
 Route::get('/signup', [SubscriptionController::class, 'show'])->name('subscribe.show');
+
+Route::prefix('inbox')->name('inbox.')->middleware(['auth'])->group(static function () {
+    Route::get('/', [MessageController::class, 'index'])->name('index');
+
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', function() {
