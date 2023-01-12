@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.guest')
 
 @section('content')
     <!-- This example requires Tailwind CSS v3.0+ -->

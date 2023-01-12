@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Message;
 use App\Models\Tenant;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -15,12 +16,21 @@ class TenantSeeder extends Seeder
      */
     public function run()
     {
-        $tenants = Tenant::factory()->count(20)->create();
+        $tenants = Tenant::factory()->count(10)->create();
 
         foreach ($tenants as $tenant) {
-            User::factory()->count(rand(5, 10))->create([
+            $users = User::factory()->count(rand(5, 8))->create([
                 'tenant_id' => $tenant->id,
             ]);
+
+            foreach ($users as $user) {
+                Message::factory()->count(3)->create(
+                    [
+                        'tenant_id' => $tenant->id,
+                        'sender_id' => $user->id,
+                        'recipient_id' => $users->random()->id,
+                    ]);
+            }
         }
     }
 }
