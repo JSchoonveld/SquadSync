@@ -32,6 +32,7 @@ class Inbox extends Component
     public function getSingleMessage($id)
     {
         $this->overview = false;
+        $this->emit('readMessage');
         $message = Message::find($id);
         $message->read_at = now();
         $message->save();
