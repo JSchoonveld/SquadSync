@@ -21,8 +21,8 @@ class UserSeeder extends Seeder
             ->create([
                 'name' => 'Super admin',
                 'email' => 'admin@schoonveld.com',
-                'role' => UserTypeEnum::ADMIN()->value
             ]);
 
+        $user->assignRole('admin');
     }
 }

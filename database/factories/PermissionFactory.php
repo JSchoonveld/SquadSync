@@ -20,7 +20,6 @@ class PermissionFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
-            'user_types' => json_encode([2]),
         ];
     }
 }

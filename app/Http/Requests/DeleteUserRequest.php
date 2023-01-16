@@ -17,7 +17,7 @@ class DeleteUserRequest extends FormRequest
     public function authorize()
     {
         $user = Auth::user();
-        if ($user->role == UserTypeEnum::ADMIN()) {
+        if ($user->can('update a company')) {
             return true;
         }
         return false;

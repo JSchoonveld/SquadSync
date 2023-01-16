@@ -20,7 +20,7 @@ class Overview extends Component
 
     public function toggleAdminOptions()
     {
-        if (Auth::user()->role == UserTypeEnum::ADMIN()) {
+        if (Auth::user()->can('update a company')) {
             $this->adminOptions = true;
         }
     }

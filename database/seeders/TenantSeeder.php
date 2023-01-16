@@ -25,11 +25,11 @@ class TenantSeeder extends Seeder
             foreach ($users as $user) {
                 $user->tenant_id = $tenant->id;
                 if ($first) {
-                    $user->role = UserTypeEnum::TEAM_ADMIN()->value;
+                    $user->assignRole('team_admin');
 
                     $first = false;
                 } else {
-                    $user->role = UserTypeEnum::TEAM_USER()->value;
+                    $user->assignRole('team_user');
                 }
                 $user->save();
             }
