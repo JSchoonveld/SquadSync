@@ -29,7 +29,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white {{ request()->routeIs('users.show') ? 'bg-slate-600' : '' }} hover:bg-gray-100 dark:hover:bg-slate-600">
+                    <a href="{{ route('users.index') }}" class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white {{ request()->routeIs('users.show') ? 'bg-slate-600' : '' }} hover:bg-gray-100 dark:hover:bg-slate-600">
                         <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
                         <span class="flex-1 ml-3 whitespace-nowrap">Users</span>
                     </a>
@@ -41,10 +41,10 @@
                     </a>
                 </li>
                 <li>
-                    <form class="flex items-center p-2 py-2 text-base font-normal text-gray-900 dark:text-white" method="POST" action="{{ route('logout') }}">
+                    <form class="flex items-center p-2 py-2 text-base font-normal text-gray-900 rounded-lg hover:bg-slate-600 dark:text-white" method="POST" action="{{ route('logout') }}">
                         @csrf
                         <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"></path></svg>
-                        <input class="hover:text-gray-500 hover:cursor-pointer flex w-full ml-3" type="submit" value="Sign out">
+                        <input class="hover:cursor-pointer flex w-full ml-3" type="submit" value="Sign out">
                     </form>
                 </li>
             </ul>

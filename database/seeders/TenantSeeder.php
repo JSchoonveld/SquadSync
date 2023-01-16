@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enums\UserTypeEnum;
 use App\Models\Message;
 use App\Models\Tenant;
 use App\Models\User;
@@ -19,9 +20,19 @@ class TenantSeeder extends Seeder
         $tenants = Tenant::factory()->count(10)->create();
 
         foreach ($tenants as $tenant) {
-            $users = User::factory()->count(rand(5, 8))->create([
-                'tenant_id' => $tenant->id,
-            ]);
+            $first = true;
+            $users = User::factory()->count(rand(5, 8))->create();
+            foreach ($users as $user) {
+                $user->tenant_id = $tenant->id;
+                if ($first) {
+                    $user->role = UserTypeEnum::TEAM_ADMIN()->value;
+
+                    $first = false;
+                } else {
+                    $user->role = UserTypeEnum::TEAM_USER()->value;
+                }
+                $user->save();
+            }
 
             foreach ($users as $user) {
                 Message::factory()->count(3)->create(

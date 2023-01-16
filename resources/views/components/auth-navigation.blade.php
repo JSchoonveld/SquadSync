@@ -3,8 +3,8 @@
         <div class="mx-auto">
             <div class="flex h-16 items-center justify-between">
                 <div class="h-16 bg-slate-900 flex items-center nav-logo-section">
-                    <img class="h-8" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
-                    <h1 class="text-white text-2xl font-bold pl-4">Squadsync</h1>
+                    <img class="h-8 pl-4" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+                    <a href="{{ route('dashboard') }}" class="text-white text-2xl font-bold pl-4">Squadsync</a>
                 </div>
                 <div class="flex justify-between w-full pl-8">
                     <div class="flex items-center">
