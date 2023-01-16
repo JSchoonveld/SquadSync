@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enums\UserTypeEnum;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -15,6 +16,13 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        //TODO
+        $user = User::factory()
+            ->verified()
+            ->create([
+                'name' => 'Super admin',
+                'email' => 'admin@schoonveld.com',
+                'role' => UserTypeEnum::ADMIN()->value
+            ]);
+
     }
 }

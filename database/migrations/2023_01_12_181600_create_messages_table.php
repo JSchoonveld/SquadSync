@@ -19,11 +19,11 @@ return new class extends Migration
             $table->text('body', 1500);
             $table->dateTime('read_at')->nullable();
             $table->unsignedBigInteger('sender_id');
-            $table->foreign('sender_id')->references('id')->on('users');
+            $table->foreign('sender_id')->references('id')->on('users')->cascadeOnDelete();
             $table->unsignedBigInteger('recipient_id');
-            $table->foreign('recipient_id')->references('id')->on('users');
+            $table->foreign('recipient_id')->references('id')->on('users')->cascadeOnDelete();
             $table->unsignedBigInteger('tenant_id')->index();
-             $table->foreign('tenant_id')->references('id')->on('tenants');
+             $table->foreign('tenant_id')->references('id')->on('tenants')->cascadeOnDelete();
             $table->timestamps();
         });
     }

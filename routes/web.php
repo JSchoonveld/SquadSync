@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\UserController;
 use App\Http\Livewire\Auth\Login;
 use App\Http\Livewire\Auth\Passwords\Confirm;
 use App\Http\Livewire\Auth\Passwords\Email;
@@ -35,6 +36,11 @@ Route::get('/signup', [SubscriptionController::class, 'show'])->name('subscribe.
 
 Route::prefix('inbox')->name('inbox.')->middleware(['auth'])->group(static function () {
     Route::get('/', [MessageController::class, 'index'])->name('index');
+
+});
+
+Route::prefix('users')->name('users.')->middleware(['auth'])->group(static function () {
+    Route::get('/', [UserController::class, 'index'])->name('index');
 
 });
 

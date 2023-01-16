@@ -14,7 +14,10 @@ class Message extends Model
 
     protected $fillable = [
         'body',
+        'title',
         'read_at',
+        'sender_id',
+        'recipient_id'
     ];
 
     public function sender(): BelongsTo
