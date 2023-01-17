@@ -13,13 +13,18 @@ return new class extends Migration {
     public function up()
     {
         $permissions = [
-            'create a company',
-            'update a company',
+            'create a tenant',
+            'update a tenant',
+            'delete a tenant',
+            'view a tenant',
+            'manage tenant users',
 
-            'create a client',
-            'update a client',
+            'create a user',
+            'update a user',
+            'delete a user',
+            'view a user',
 
-            'view run information',
+            'view team information',
         ];
 
         foreach ($permissions as $permission) {
@@ -30,17 +35,25 @@ return new class extends Migration {
 
         $permissionsByRole = [
             'admin' => [
-                'create a company',
-                'update a company',
-                'assign device',
+                'create a tenant',
+                'update a tenant',
+                'delete a tenant',
+                'view a tenant',
+                'manage tenant users',
+                'create a user',
+                'update a user',
+                'delete a user',
+                'view a user',
             ],
             'team_admin' => [
-                'create a client',
-                'update a client',
-                'delete a client'
+                'create a user',
+                'update a user',
+                'delete a user',
+                'view a user',
+                'view team information',
             ],
             'team_user' => [
-                'view run information',
+                'view team information',
             ],
         ];
 
