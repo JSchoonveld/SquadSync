@@ -40,7 +40,7 @@ class Inbox extends Component
 
     public function sendMessage()
     {
-        $this->validate();
+//        $this->validate();
 
         $message = Message::create([
             'title' => $this->messageTitle,

@@ -17,7 +17,6 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->enum('role', UserTypeEnum::toValues())->default(UserTypeEnum::TEAM_USER());
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->unsignedBigInteger('tenant_id')->nullable()->index();
