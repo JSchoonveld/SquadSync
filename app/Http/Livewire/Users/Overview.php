@@ -20,6 +20,7 @@ class Overview extends Component
 
     public function toggleAdminOptions()
     {
+    
         if (Auth::user()->can('manage tenant users')) {
             $this->adminOptions = true;
         }
