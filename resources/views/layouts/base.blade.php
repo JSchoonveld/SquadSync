@@ -17,7 +17,6 @@
     <style>
         [x-cloak] { display: none; }
     </style>
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @livewireStyles
 
@@ -28,7 +27,6 @@
 <body>
 @yield('body')
 
-<script src="{{ mix('js/app.js') }}"></script>
 @livewireScripts
 </body>
 </html>

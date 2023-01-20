@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Messages;
 
 use App\Enums\MailModeEnum;
+use App\Events\UserSendsMessage;
 use App\Models\Message;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +41,7 @@ class Inbox extends Component
 
     public function sendMessage()
     {
-        $this->validate();
+//        $this->validate();
 
         $message = Message::create([
             'title' => $this->messageTitle,
@@ -49,6 +50,8 @@ class Inbox extends Component
             'tenant_id' => Auth::user()->tenant_id,
             'recipient_id' => $this->recipient,
         ]);
+
+        UserSendsMessage::dispatch($this->recipient);
     }
 
     public function getMessages() {

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Broadcast;
 
 /*
@@ -15,4 +16,9 @@ use Illuminate\Support\Facades\Broadcast;
 
 Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
     return (int) $user->id === (int) $id;
+});
+
+Broadcast::channel('message-sent-private', function($recipient) {
+    info($recipient);
+    return (int) Auth::user()->id === (int) $recipient->id;
 });
